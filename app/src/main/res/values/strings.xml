@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MobSoft</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="species">Faj</string>
+    <string name="class_animal">Osztály</string>
+    <string name="appearance">Megjelenés</string>
+    <string name="habitat">Előfordulás</string>
+    <string name="living">Életmód</string>
+    <string name="reproduction">Szaporodás</string>
+    <string name="save">Save</string>
+    <string name="add_new_animal">Új állat hozzáadása</string>
+    <string name="animals">Állatok</string>
 </resources>

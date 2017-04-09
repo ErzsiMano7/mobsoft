@@ -10,12 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.main.MainActivity">
+        </activity>
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.list.ListActivity" android:label="@string/animals"></activity>
+
+        <activity android:name=".ui.detail.DetailActivity"></activity>
+
+        <activity android:name=".ui.create.CreateActivity" android:label="@string/add_new_animal"></activity>
     </application>
 
 </manifest>

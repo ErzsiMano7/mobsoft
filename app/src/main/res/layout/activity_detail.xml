@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/class_animal"/>
+
+            <TextView
+                android:id="@+id/tvClass"
+                android:layout_width="match_parent"
+                android:layout_height="65dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/appearance"/>
+
+            <TextView
+                android:id="@+id/tvAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="65dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/habitat"/>
+
+            <TextView
+                android:id="@+id/tvHabitat"
+                android:layout_width="match_parent"
+                android:layout_height="65dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/living"/>
+
+            <TextView
+                android:id="@+id/tvLiving"
+                android:layout_width="match_parent"
+                android:layout_height="65dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reproduction"/>
+
+            <TextView
+                android:id="@+id/tvReproduction"
+                android:layout_width="match_parent"
+                android:layout_height="65dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
