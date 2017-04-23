@@ -3,6 +3,10 @@ package mobsoft.bme.hu.mobsoft;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import mobsoft.bme.hu.mobsoft.interactor.InteractorModule;
+import mobsoft.bme.hu.mobsoft.interactor.animals.AnimalsInteractor;
+import mobsoft.bme.hu.mobsoft.repository.Repository;
+import mobsoft.bme.hu.mobsoft.repository.RepositoryModule;
 import mobsoft.bme.hu.mobsoft.ui.UIModule;
 import mobsoft.bme.hu.mobsoft.ui.create.CreateActivity;
 import mobsoft.bme.hu.mobsoft.ui.detail.DetailActivity;
@@ -15,7 +19,7 @@ import mobsoft.bme.hu.mobsoft.ui.main.MainActivity;
  */
 
 @Singleton
-@Component(modules = {UIModule.class})
+@Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class})
 public interface MobSoftApplicationComponent {
     void inject(MainActivity mainActivity);
 
@@ -26,4 +30,8 @@ public interface MobSoftApplicationComponent {
     void inject(DetailActivity detailActivity);
 
     void inject(CreateActivity createActivity);
+
+    void inject(AnimalsInteractor animalsInteractor);
+
+    void inject(MobSoftApplication mobSoftApplication);
 }

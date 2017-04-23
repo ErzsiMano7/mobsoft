@@ -12,8 +12,8 @@ public class Animal {
     private String living;
     private String reproduction;
 
-    public Animal(String species, String classAnimal, String appearance, String habitat, String living, String reproduction)
-    {
+    public Animal(String species, String classAnimal, String appearance, String habitat, String living, String reproduction) {
+
         this.species = species;
         this.classAnimal = classAnimal;
         this.appearance = appearance;

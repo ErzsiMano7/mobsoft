@@ -15,13 +15,13 @@ public interface Repository {
 
     void close();
 
-    List<Animal> getFavourites();
+    List<Animal> getAnimals();
 
-    void saveFavourite(Animal animal);
+    void saveAnimal(Animal animal);
 
-    void updateFavourites(List<Animal> animals);
+    void updateAnimals(List<Animal> animals);
 
-    void removeFavourite(Animal animal);
+    void removeAnimal(Animal animal);
 
     boolean isInDB(Animal animal);
 }
