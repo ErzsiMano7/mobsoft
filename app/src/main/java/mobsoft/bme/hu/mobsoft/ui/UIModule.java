@@ -6,6 +6,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import de.greenrobot.event.EventBus;
 import mobsoft.bme.hu.mobsoft.ui.create.CreatePresenter;
 import mobsoft.bme.hu.mobsoft.ui.detail.DetailPresenter;
 import mobsoft.bme.hu.mobsoft.ui.list.ListPresenter;
@@ -58,5 +59,11 @@ public class UIModule {
     @Singleton
     public CreatePresenter provideCreatePresenter() {
         return new CreatePresenter();
+    }
+
+    @Provides
+    @Singleton
+    public EventBus provideEventBus() {
+        return EventBus.getDefault();
     }
 }

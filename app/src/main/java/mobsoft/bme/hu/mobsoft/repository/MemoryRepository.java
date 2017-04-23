@@ -3,7 +3,9 @@ package mobsoft.bme.hu.mobsoft.repository;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import mobsoft.bme.hu.mobsoft.model.Animal;
 
@@ -13,11 +15,12 @@ import mobsoft.bme.hu.mobsoft.model.Animal;
 
 public class MemoryRepository implements Repository {
 
-    public static List<Animal> animals;
+    public static Map<Long, Animal> animalMap;
+    public static long nextId = -1;
 
     @Override
     public void open(Context context) {
-        animals  = new ArrayList<>();
+        animalMap = new HashMap<>();
     }
 
     @Override
@@ -26,33 +29,44 @@ public class MemoryRepository implements Repository {
 
     @Override
     public List<Animal> getAnimals() {
+        List<Animal> animals = new ArrayList<>();
+        for(long i : animalMap.keySet())
+        {
+            animals.add(animalMap.get(i));
+        }
         return animals;
     }
 
     @Override
     public void saveAnimal(Animal animal) {
-        animals.add(animal);
+        animalMap.put(getNextId(), animal);
     }
 
     @Override
     public void updateAnimals(List<Animal> animals) {
-        for (int i = 0; i < this.animals.size(); i++) {
-            Animal animal = this.animals.get(i);
-            for (Animal ani : animals) {
-                if (ani.getId().equals(animal.getId())) {
-                    this.animals.set(i, ani);
-                }
-            }
+        for (Animal an : animals)
+        {
+            animalMap.put(an.getId(), an);
         }
     }
 
     @Override
     public void removeAnimal(Animal animal) {
-        animals.remove(animal);
+        animalMap.remove(animal.getId());
     }
 
     @Override
     public boolean isInDB(Animal animal) {
-        return animals.contains(animal);
+        for(long i : animalMap.keySet())
+        {
+            if(animalMap.get(i).equals(animal))
+                return true;
+        }
+        return false;
+    }
+
+    public long getNextId()
+    {
+        return nextId++;
     }
 }

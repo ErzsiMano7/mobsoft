@@ -1,10 +1,13 @@
 package mobsoft.bme.hu.mobsoft.model;
 
+import com.orm.dsl.Table;
+
 /**
  * Created by erzsi on 2017.04.09..
  */
-
+@Table
 public class Animal {
+    private Long id;
     private String species;
     private String classAnimal;
     private String appearance;
@@ -13,13 +16,20 @@ public class Animal {
     private String reproduction;
 
     public Animal(String species, String classAnimal, String appearance, String habitat, String living, String reproduction) {
-
         this.species = species;
         this.classAnimal = classAnimal;
         this.appearance = appearance;
         this.habitat = habitat;
         this.living = living;
         this.reproduction = reproduction;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSpecies() {
@@ -68,5 +78,15 @@ public class Animal {
 
     public void setReproduction(String reproduction) {
         this.reproduction = reproduction;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Animal)){
+            return false;
+        }
+
+        Animal other = (Animal) obj;
+        return this.species.equals(other.species);
     }
 }

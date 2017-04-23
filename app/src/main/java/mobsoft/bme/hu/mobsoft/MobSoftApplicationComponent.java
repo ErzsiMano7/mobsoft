@@ -9,6 +9,7 @@ import mobsoft.bme.hu.mobsoft.repository.Repository;
 import mobsoft.bme.hu.mobsoft.repository.RepositoryModule;
 import mobsoft.bme.hu.mobsoft.ui.UIModule;
 import mobsoft.bme.hu.mobsoft.ui.create.CreateActivity;
+import mobsoft.bme.hu.mobsoft.ui.create.CreatePresenter;
 import mobsoft.bme.hu.mobsoft.ui.detail.DetailActivity;
 import mobsoft.bme.hu.mobsoft.ui.list.ListActivity;
 import mobsoft.bme.hu.mobsoft.ui.login.LoginActivity;
@@ -34,4 +35,6 @@ public interface MobSoftApplicationComponent {
     void inject(AnimalsInteractor animalsInteractor);
 
     void inject(MobSoftApplication mobSoftApplication);
+
+    void inject(CreatePresenter createPresenter);
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 import mobsoft.bme.hu.mobsoft.model.Animal;
 
-import static mobsoft.bme.hu.mobsoft.repository.MemoryRepository.animals;
+import static mobsoft.bme.hu.mobsoft.repository.MemoryRepository.animalMap;
 
 /**
  * Created by erzsi on 2017.04.10..
@@ -53,11 +53,16 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public void removeAnimal(Animal animal) {
-        animals.remove(animal);
+        animalMap.remove(animal.getId());
     }
 
     @Override
     public boolean isInDB(Animal animal) {
-        return animals.contains(animal);
+        for(long i : animalMap.keySet())
+        {
+            if(animalMap.get(i).equals(animal))
+                return true;
+        }
+        return false;
     }
 }
