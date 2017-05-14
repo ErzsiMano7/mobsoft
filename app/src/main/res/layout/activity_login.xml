@@ -8,7 +8,17 @@
     android:gravity="center"
     android:paddingLeft="12dp"
     android:paddingRight="12dp"
-    tools:context="mobsoft.bme.hu.mobsoft.ui.login.LoginActivity">
+    tools:context="hu.bme.mobsoft.animal.ui.login.LoginActivity"
+    android:weightSum="1"
+    android:background="@android:color/holo_green_light">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/pillangris"
+        android:layout_weight="0.32" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +38,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:text="testuser"/>
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -44,7 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:text="testpw"/>
         </android.support.design.widget.TextInputLayout>
 
         <Button

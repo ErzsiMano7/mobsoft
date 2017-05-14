@@ -6,8 +6,8 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "mobsoft.bme.hu.mobsoft"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion 19
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -26,6 +26,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    // https://mvnrepository.com/artifact/io.swagger/swagger-annotations
+    compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.13'
+
+
     // Dagger 2 and Compiler
     // Required for @Generated annotation (missing in Java <= 1.6; therefore, Android)
     compile 'com.android.support:appcompat-v7:25.1.1'
@@ -40,4 +44,27 @@ dependencies {
 
     compile 'com.github.satyan:sugar:1.4'
     compile 'de.greenrobot:eventbus:2.4.0'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    //Retrofit and OkHttp
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+    compile 'com.squareup.okhttp3:okhttp:3.0.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+    compile 'com.google.code.gson:gson:2.4'
+
+    //JVM Test
+    //JUnit
+    testCompile 'junit:junit:4.12'
+
+    //Robolectric
+    testCompile('org.robolectric:shadows-support-v4:3.0-rc3') {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+
+
+    //Mockito
+    testCompile "org.mockito:mockito-core:1.10.19"
 }

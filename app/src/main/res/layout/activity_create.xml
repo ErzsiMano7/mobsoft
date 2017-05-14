@@ -108,6 +108,27 @@
                     android:layout_gravity="center_vertical"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:id="@+id/btnImage"
+                    android:layout_width="85dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="8dp"
+                    android:text="Kép">
+                </Button>
+                <TextView
+                    android:id="@+id/tilImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center_vertical"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 

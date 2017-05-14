@@ -1,68 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ivDetailsBackground"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="#70000000">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="8dp">
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/class_animal"/>
+                android:text="@string/class_animal"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:id="@+id/tvClass"
                 android:layout_width="match_parent"
-                android:layout_height="65dp" />
+                android:layout_height="55dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/appearance"/>
+                android:text="@string/appearance"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:id="@+id/tvAppearance"
                 android:layout_width="match_parent"
-                android:layout_height="65dp" />
+                android:layout_height="55dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/habitat"/>
+                android:text="@string/habitat"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:id="@+id/tvHabitat"
                 android:layout_width="match_parent"
-                android:layout_height="65dp" />
+                android:layout_height="55dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/living"/>
+                android:text="@string/living"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:id="@+id/tvLiving"
                 android:layout_width="match_parent"
-                android:layout_height="65dp" />
+                android:layout_height="55dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/reproduction"/>
+                android:text="@string/reproduction"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
 
             <TextView
                 android:id="@+id/tvReproduction"
                 android:layout_width="match_parent"
-                android:layout_height="65dp" />
+                android:layout_height="55dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"/>
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+</FrameLayout>
