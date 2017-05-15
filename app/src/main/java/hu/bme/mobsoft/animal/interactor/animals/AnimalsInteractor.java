@@ -42,7 +42,7 @@ public class AnimalsInteractor {
             Response<List<AnimalDto>> result = call.execute();
 
             if (result.isSuccess()) {
-                //repository.clearAllAnimals();
+                repository.clearAllAnimals();
                 for (AnimalDto anim : result.body()) {
                     Animal animal = new Animal(anim.getSpecies(), anim.getAnimalClass(),
                             anim.getAppearance(), anim.getHabitat(), anim.getLiving(),
@@ -81,7 +81,7 @@ public class AnimalsInteractor {
                 event.setThrowable(new SyncFailedException("Could not get animal list from servers"));
                 bus.post(event);
             } else {
-                getAnimals();
+               // getAnimals();
             }
 //            bus.post(event);
         } catch (Exception e) {
@@ -101,9 +101,26 @@ public class AnimalsInteractor {
     public void removeAnimal(Animal animal) {
         RemoveAnimalEvent event = new RemoveAnimalEvent();
         event.setAnimals(animal);
+
         try {
             repository.removeAnimal(animal.getId());
-            bus.post(event);
+            AnimalIdDto id = new AnimalIdDto();
+            id.setId(animal.getId());
+
+            Call<Void> call = animalApi.deleteAnimal(id.getId());
+            Response<Void> response = call.execute();
+
+            if(!response.isSuccess())
+            {
+                event.setCode(response.code());
+                event.setThrowable(new SyncFailedException("Could not delete animal from server"));
+                bus.post(event);
+            }
+            else
+            {
+                bus.post(event);
+                animalApi.deleteAnimal(id.getId());
+            }
         } catch (Exception e) {
             event.setThrowable(e);
             bus.post(event);

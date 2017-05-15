@@ -33,7 +33,7 @@ public class DetailActivity extends AppCompatActivity implements DetailScreen {
     protected TextView tvLiving;
     protected TextView tvReproduction;
     protected ImageView ivAnimal;
-    private Animal animal;
+    protected Animal animal;
 
     public static final String ANIMAL = "ANIMAL";
 

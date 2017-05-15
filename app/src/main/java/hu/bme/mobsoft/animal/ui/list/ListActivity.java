@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import hu.bme.mobsoft.animal.MobSoftApplication;
 import hu.bme.mobsoft.animal.R;
 import hu.bme.mobsoft.animal.model.Animal;
+import hu.bme.mobsoft.animal.repository.MemoryRepository;
 import hu.bme.mobsoft.animal.ui.create.CreateActivity;
 import hu.bme.mobsoft.animal.ui.detail.DetailActivity;
 import hu.bme.mobsoft.animal.utils.GsonHelper;
@@ -59,6 +60,14 @@ public class ListActivity extends AppCompatActivity implements ListScreen {
             }
         });
 
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                deleteItem(animalAdapter.getItem(position));
+                return true;
+            }
+        });
+
         floatingActionButton = (FloatingActionButton) findViewById(R.id.btnCreate);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +89,7 @@ public class ListActivity extends AppCompatActivity implements ListScreen {
     protected void onResume() {
         super.onResume();
         listPresenter.attachScreen(this);
+        listPresenter.getAnimals();
     }
 
     @Override
@@ -104,5 +114,11 @@ public class ListActivity extends AppCompatActivity implements ListScreen {
     @Override
     public void showMessage(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
+    public void deleteItem(Animal animal)
+    {
+        listPresenter.deleteAnimal(animal);
+        animalAdapter.notifyDataSetChanged();
     }
 }

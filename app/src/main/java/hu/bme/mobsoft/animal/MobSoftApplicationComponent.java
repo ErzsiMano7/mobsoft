@@ -16,7 +16,6 @@ import hu.bme.mobsoft.animal.ui.list.ListActivity;
 import hu.bme.mobsoft.animal.ui.list.ListPresenter;
 import hu.bme.mobsoft.animal.ui.login.LoginActivity;
 import hu.bme.mobsoft.animal.ui.login.LoginPresenter;
-import hu.bme.mobsoft.animal.ui.main.MainActivity;
 
 /**
  * Created by mobsoft on 2017. 03. 27..
@@ -25,8 +24,6 @@ import hu.bme.mobsoft.animal.ui.main.MainActivity;
 @Singleton
 @Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class, NetworkModule.class})
 public interface MobSoftApplicationComponent {
-    void inject(MainActivity mainActivity);
-
     void inject(LoginActivity loginActivity);
 
     void inject(ListActivity listActivity);

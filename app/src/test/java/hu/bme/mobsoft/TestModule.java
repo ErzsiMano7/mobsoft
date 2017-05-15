@@ -1,4 +1,4 @@
-package hu.bme.mobsoft.animal;
+package hu.bme.mobsoft;
 
 import android.content.Context;
 
@@ -9,6 +9,9 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import de.greenrobot.event.EventBus;
+import hu.bme.mobsoft.animal.ui.create.CreatePresenter;
+import hu.bme.mobsoft.animal.ui.detail.DetailPresenter;
+import hu.bme.mobsoft.animal.ui.list.ListPresenter;
 import hu.bme.mobsoft.animal.ui.login.LoginPresenter;
 import hu.bme.mobsoft.animal.ui.UIModule;
 import hu.bme.mobsoft.utils.UiExecutor;
@@ -31,10 +34,24 @@ public class TestModule {
         return UIModule.provideContext();
     }
 
-
     @Provides
     public LoginPresenter provideLoginPresenter() {
         return UIModule.provideLoginPresenter();
+    }
+
+    @Provides
+    public CreatePresenter provideCreatePresenter() {
+        return UIModule.provideCreatePresenter();
+    }
+
+    @Provides
+    public DetailPresenter provideDetailPresenter() {
+        return UIModule.provideDetailPresenter();
+    }
+
+    @Provides
+    public ListPresenter provideListPresenter() {
+        return UIModule.provideListPresenter();
     }
 
 

@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "656589262554",
+    "project_id": "firebase-animalcatalog"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656589262554:android:152037bf6c6f3ad7",
+        "android_client_info": {
+          "package_name": "hu.bme.mobsoft.animal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH5xNEGb1Qz1qPmdGw7IOUWTZL1K9kqww"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-99171932-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

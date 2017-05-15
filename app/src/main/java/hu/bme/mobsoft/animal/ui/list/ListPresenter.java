@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import de.greenrobot.event.EventBus;
 import hu.bme.mobsoft.animal.interactor.animals.AnimalsInteractor;
 import hu.bme.mobsoft.animal.interactor.animals.events.GetAnimalsEvent;
+import hu.bme.mobsoft.animal.interactor.animals.events.RemoveAnimalEvent;
 import hu.bme.mobsoft.animal.model.Animal;
 import hu.bme.mobsoft.animal.ui.Presenter;
 
@@ -34,11 +35,11 @@ public class ListPresenter extends Presenter<ListScreen> {
         super.attachScreen(screen);
         injector.inject(this);
         bus.register(this);
-
+        animalsInteractor.getAnimals();
     }
 
     @Override
-    public void detachScreen(){
+    public void detachScreen() {
         bus.unregister(this);
         super.detachScreen();
     }
@@ -53,7 +54,7 @@ public class ListPresenter extends Presenter<ListScreen> {
     }
 
     public void onEventMainThread(GetAnimalsEvent event) {
-        Log.d("test","test");
+        Log.d("test", "test");
         if (event.getThrowable() != null) {
             event.getThrowable().printStackTrace();
             if (screen != null) {
@@ -70,5 +71,34 @@ public class ListPresenter extends Presenter<ListScreen> {
     public void createAnimal(Animal animal) {
         animalsInteractor.saveAnimal(animal);
         getAnimals();
+    }
+
+    public void deleteAnimal(final Animal animal) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                animalsInteractor.removeAnimal(animal);
+            }
+        });
+    }
+
+    public void onEventMainThread(RemoveAnimalEvent event) {
+        if (event.getThrowable() != null) {
+            event.getThrowable().printStackTrace();
+            if (screen != null) {
+                screen.showMessage("error");
+            }
+
+            Log.e("Networking", "Error deleting animals", event.getThrowable());
+
+        }
+        if(screen != null) {
+            executor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    animalsInteractor.getAnimals();
+                }
+            });
+        }
     }
 }

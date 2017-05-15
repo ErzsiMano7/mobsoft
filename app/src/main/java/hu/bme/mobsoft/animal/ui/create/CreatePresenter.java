@@ -35,6 +35,7 @@ public class CreatePresenter extends Presenter<CreateScreen> {
     public void createAnimal(String species, String classAnimal, String appearance, String habitat, String living, String reproduction, String image) {
         final Animal animal = new Animal(species, classAnimal, appearance, habitat, living, reproduction, image);
         saveAnimal(animal);
+        animalsInteractor.getAnimals();
         screen.navigateToList();
     }
 

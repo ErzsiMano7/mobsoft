@@ -14,7 +14,6 @@ import hu.bme.mobsoft.animal.ui.create.CreatePresenter;
 import hu.bme.mobsoft.animal.ui.detail.DetailPresenter;
 import hu.bme.mobsoft.animal.ui.list.ListPresenter;
 import hu.bme.mobsoft.animal.ui.login.LoginPresenter;
-import hu.bme.mobsoft.animal.ui.main.MainPresenter;
 
 
 /**
@@ -32,12 +31,6 @@ public class UIModule {
     @Provides
     public Context provideContext() {
         return context;
-    }
-
-    @Provides
-    @Singleton
-    public MainPresenter provideMainPresenter() {
-        return new MainPresenter();
     }
 
     @Provides

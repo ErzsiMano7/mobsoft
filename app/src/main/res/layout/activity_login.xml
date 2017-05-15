@@ -38,8 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:inputType="text"
-                android:text="testuser"/>
+                android:inputType="text"/>
+               <!-- android:text="testuser"-->
 
         </android.support.design.widget.TextInputLayout>
 
@@ -56,8 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:inputType="textPassword"
-                android:text="testpw"/>
+                android:inputType="textPassword"/>
+                <!--android:text="testpw"-->
         </android.support.design.widget.TextInputLayout>
 
         <Button
@@ -67,6 +67,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/login" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Force Crash!"
+            android:onClick="forceCrash"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
     </LinearLayout>
 
 </LinearLayout>

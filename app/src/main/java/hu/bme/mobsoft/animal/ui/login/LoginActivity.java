@@ -5,14 +5,20 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import javax.inject.Inject;
 
 import hu.bme.mobsoft.animal.MobSoftApplication;
 import hu.bme.mobsoft.animal.R;
 import hu.bme.mobsoft.animal.ui.list.ListActivity;
+
+import static android.R.attr.name;
 
 public class LoginActivity extends AppCompatActivity implements LoginScreen {
 
@@ -24,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
     private TextInputLayout layoutPassword;
     private TextInputEditText etPassword;
     private Button btnLogin;
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +51,27 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
                 layoutPassword.setErrorEnabled(false);
                 layoutUsername.setErrorEnabled(false);
                 loginPresenter.login(etUsername.getText().toString(), etPassword.getText().toString());
+
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("Share")
+                        .build());
             }
         });
+
+        MobSoftApplication application = (MobSoftApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         loginPresenter.attachScreen(this);
+
+        Log.i("Message", "Setting screen name: " + name);
+        mTracker.setScreenName("Image~" + name);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override
@@ -72,6 +92,11 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
         startActivity(intent);
         finish();
     }
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
+
 
     @Override
     public void showPasswordError() {

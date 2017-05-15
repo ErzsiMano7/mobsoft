@@ -31,6 +31,11 @@ public class AnimalMock {
 
         if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "animals") && request.method().equals("GET")) {
             MemoryRepository memoryRepository = new MemoryRepository();
+           /* if(memoryRepository.getAnimals().size() == 0)
+            {
+                Animal animal = new Animal("vörös róka", "emlős", "vöröses-sárgás barna szín", "szinte mindenhol", "ragadozó", "4-7 kölyök", "roka.jpg");
+                memoryRepository.saveAnimal(animal);
+            }*/
             responseString = GsonHelper.getGson().toJson(memoryRepository.getAnimals());
             responseCode = 200;
         } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "animals") && request.method().equals("POST")) {
@@ -52,7 +57,9 @@ public class AnimalMock {
             responseCode = 200;*/
         } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "animals/") && request.method().equals("DELETE")) {
             MemoryRepository memoryRepository = new MemoryRepository();
-            long id = Long.parseLong(uri.getPath().substring(uri.getPath().lastIndexOf("/")));
+            String ids = uri.getPath().substring(uri.getPath().lastIndexOf("/"));
+            ids = ids.replace("/", "");
+            long id = Long.parseLong(ids);
             memoryRepository.removeAnimal(id);
             responseString = "";
             responseCode = 200;
